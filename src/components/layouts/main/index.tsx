@@ -1,15 +1,16 @@
-import { BackgroundImage } from 'components/images';
+import { BackgroundImage } from 'assets/images';
 import Image from 'next/image';
 import React from 'react';
 
-type Props = {
+type TProps = {
   children: React.ReactNode;
+  className?: string;
 };
 
-const MainLayout: React.FC<Props> = ({ children, ...other }) => {
+const MainLayout: React.FC<TProps> = ({ children, ...other }) => {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-[#FF4359] to-[#000]" {...other}>
-      <Image src={BackgroundImage} alt="bg" className="absolute h-[100vh] object-cover opacity-10" />
+    <div className="min-h-screen w-full" {...other}>
+      <Image src={BackgroundImage} alt="bg" className="absolute -z-10 h-[100vh] object-cover" />
       <div>{children}</div>
     </div>
   );
