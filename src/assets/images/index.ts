@@ -1,1 +1,2 @@
-export { default as BackgroundImage } from './bg.png';
+export { default as LoginBG } from './login-bg.png';
+export { default as HomeBG } from './home-bg.png';
