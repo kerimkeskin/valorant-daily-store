@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function Login() {
   return (
-    <MainLayout isLogin>
+    <MainLayout>
       <div className="flex h-screen items-center justify-center">
         <LoginCard />
       </div>
