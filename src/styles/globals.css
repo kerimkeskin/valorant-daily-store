@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'FFMarkW05-Bold';
+  src: url('../../public/fonts/FFMarkW05-Bold.woff2');
+}
+
+@font-face {
+  font-family: 'FFMarkW05-Heavy';
+  src: url('../../public/fonts/FFMarkW05-Heavy.woff2');
+}
+
+@font-face {
+  font-family: 'FFMarkW05-Medium';
+  src: url('../../public/fonts/FFMarkW05-Medium.woff2');
+}
