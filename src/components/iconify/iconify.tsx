@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/react';
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 
 interface IProps {
   icon: string;
