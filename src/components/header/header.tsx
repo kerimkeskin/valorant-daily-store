@@ -14,7 +14,7 @@ const Header: React.FC = () => {
           onClick={() => {}}
           className="bg-[#ff4655] hover:bg-[#d43842]"
         >
-          <span className="text-white">Alert</span>
+          <span className="text-white">Reminder</span>
         </Button>
         <Button
           endIcon={<Iconify icon="material-symbols:mark-email-unread" />}
