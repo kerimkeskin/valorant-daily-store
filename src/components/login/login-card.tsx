@@ -26,6 +26,7 @@ const LoginCard = () => {
         variant="filled"
         color="primary"
         name="email"
+        value={state.email}
         onChange={onChangeInput}
       />
       <TextField
@@ -36,6 +37,7 @@ const LoginCard = () => {
         variant="filled"
         color="primary"
         name="password"
+        value={state.password}
         onChange={onChangeInput}
       />
       <Button
