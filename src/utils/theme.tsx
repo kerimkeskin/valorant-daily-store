@@ -9,7 +9,7 @@ const ThemeProvider: React.FC<TProps> = ({ children }) => {
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#fc4753',
+        main: '#ff4655',
         dark: '#d43842',
       },
       secondary: {

@@ -42,7 +42,7 @@ const LoginCard = () => {
         endIcon={<Iconify icon="material-symbols:arrow-right-alt" />}
         variant="contained"
         onClick={handleSignIn}
-        className="mt-3 bg-[#fc4753] hover:bg-[#d43842]"
+        className="mt-3 bg-[#ff4655] hover:bg-[#d43842]"
       >
         <span className="text-white">Sign In</span>
       </Button>
