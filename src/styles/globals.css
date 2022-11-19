@@ -16,3 +16,9 @@
   font-family: 'FFMarkW05-Medium';
   src: url('../../public/fonts/FFMarkW05-Medium.woff2');
 }
+
+@layer utilities {
+  .clip {
+    clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%, 0 50%);
+  }
+}
