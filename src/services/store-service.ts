@@ -1,4 +1,5 @@
-import { IWalletRes, IWalletReq } from './../interfaces/store';
+import { IStoreRes, IStoreReq } from './../interfaces/store';
+import { IWalletRes, IWalletReq } from 'interfaces/store';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { apiConfig } from 'constants/api-config';
 
@@ -13,6 +14,17 @@ export const storeService = createApi({
         body: params,
       }),
       transformResponse: (data: IWalletRes) => data,
+    }),
+    getDailyStore: build.query<IStoreRes, IStoreReq>({
+      query: ({ params, language }) => ({
+        url: 'store/current',
+        method: 'POST',
+        headers: {
+          language,
+        },
+        body: params,
+      }),
+      transformResponse: (data: IStoreRes) => data,
     }),
   }),
 });
