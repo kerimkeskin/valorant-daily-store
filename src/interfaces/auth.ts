@@ -21,3 +21,11 @@ export interface ILoginRes {
   tag_line: string;
   cookies: ICookies;
 }
+
+export interface IRefreshTokenReq extends ICookies {}
+
+export interface IRefreshTokenRes {
+  access_token: string;
+  entitlement_token: string;
+  cookies: ICookies;
+}
