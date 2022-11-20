@@ -12,7 +12,7 @@ export interface IWalletRes {
 }
 
 export interface IStoreReq {
-  params: IWalletReq;
+  params?: IWalletReq;
   language: string;
 }
 
@@ -68,7 +68,7 @@ export interface IItems {
 
 export interface IStoreRes {
   type: string;
-  remaning_time_in_seconds: number;
+  remaining_time_in_seconds: number;
   data: IItems[];
 }
 
@@ -109,6 +109,6 @@ export interface ISkinParams {
 }
 
 export interface ISkinReq {
-  params: ISkinParams;
+  params?: ISkinParams;
   language: string;
 }
