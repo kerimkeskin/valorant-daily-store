@@ -1,11 +1,12 @@
 import { IStoreRes, IStoreReq, ISkinRes, ISkinReq } from './../interfaces/store';
 import { IWalletRes, IWalletReq } from 'interfaces/store';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
 import { apiConfig } from 'constants/api-config';
+import axiosBaseQuery from 'utils/axiosBaseQuery';
 
 export const storeService = createApi({
   reducerPath: 'storeService',
-  baseQuery: fetchBaseQuery({ baseUrl: apiConfig.baseUrl }),
+  baseQuery: axiosBaseQuery({ baseUrl: apiConfig.baseUrl }),
   endpoints: (build) => ({
     getWalletBalance: build.query<IWalletRes, IWalletReq>({
       query: (params) => ({
@@ -15,25 +16,24 @@ export const storeService = createApi({
       }),
       transformResponse: (data: IWalletRes) => data,
     }),
-    getDailyStore: build.query<IStoreRes, IStoreReq>({
-      query: ({ params, language }) => ({
+    getDailyStore: build.query<IStoreRes[], IStoreReq>({
+      query: ({ language }) => ({
         url: 'store/current',
         method: 'POST',
         headers: {
           language,
         },
-        body: params,
       }),
-      transformResponse: (data: IStoreRes) => data,
+      transformResponse: (data: IStoreRes[]) => data,
     }),
     getAllSkins: build.query<ISkinRes, ISkinReq>({
-      query: ({ params, language }) => ({
-        url: 'store/offers',
-        method: 'POST',
-        headers: {
+      query: ({ language }) => ({
+        url: 'contents/skinLevels',
+        method: 'GET',
+        params: {
           language,
+          for_alert: true,
         },
-        body: params,
       }),
       transformResponse: (data: ISkinRes) => data,
     }),
