@@ -3,7 +3,7 @@ import React, { useMemo, useState } from 'react';
 import Card from './card';
 
 const Content = () => {
-  const [items] = useState([
+  const [skins] = useState([
     {
       name: 'Item 1',
       image: 'https://media.valorant-api.com/bundles/35a66d96-4c72-ea81-f09e-43a967b64c66/displayicon.png',
@@ -26,11 +26,11 @@ const Content = () => {
     },
   ]);
 
-  const renderItems = useMemo(() => items.map((item) => <Card {...item} key={item.name} />), [items]);
+  const renderSkins = useMemo(() => skins.map((item) => <Card {...item} key={item.name} />), [skins]);
 
   return (
     <Grid container justifyContent="center">
-      {renderItems}
+      {renderSkins}
     </Grid>
   );
 };

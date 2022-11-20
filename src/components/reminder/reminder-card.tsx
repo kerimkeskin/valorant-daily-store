@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import ItemDropdown from './item-dropdown';
+import SkinDropdown from './skin-dropdown';
 import Iconify from 'components/iconify/iconify';
 
 type IState = {
@@ -52,7 +52,7 @@ const ReminderCard: React.FC = () => {
           value={state.email}
           onChange={onChangeInput}
         />
-        <ItemDropdown onChange={onChangeDropdown} value={state.displayName} placeholder="Select Item" />
+        <SkinDropdown onChange={onChangeDropdown} value={state.displayName} placeholder="Select Skin" />
         <Button
           endIcon={<Iconify icon="fluent-mdl2:mail-reminder" />}
           variant="contained"

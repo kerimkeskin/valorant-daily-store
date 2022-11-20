@@ -11,7 +11,7 @@ interface IProps {
   emptyText?: string;
 }
 
-const ItemDropdown: React.FC<IProps> = (props) => {
+const SkinDropdown: React.FC<IProps> = (props) => {
   const { value, onChange, ...other } = props;
 
   const [data] = useState([
@@ -44,4 +44,4 @@ const ItemDropdown: React.FC<IProps> = (props) => {
   return <Dropdown value={value} data={data} onChange={onChange} optionValue="uuid" {...other} />;
 };
 
-export default ItemDropdown;
+export default SkinDropdown;
