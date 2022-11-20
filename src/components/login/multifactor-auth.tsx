@@ -3,6 +3,9 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Iconify from 'components/iconify/iconify';
 import { ILoginTwoFactorRes } from 'interfaces/auth';
+import { toast } from 'react-toastify';
+import { useLazyLoginWithTwoFactorQuery } from 'services/auth-service';
+import { useRouter } from 'next/router';
 
 interface IProps {
   data: ILoginTwoFactorRes;
@@ -10,13 +13,33 @@ interface IProps {
 
 const MultifactorAuth: React.FC<IProps> = (props) => {
   const { data } = props;
+  const router = useRouter();
+
   const [code, setCode] = useState<string>('');
+
+  const [otpVerify] = useLazyLoginWithTwoFactorQuery();
 
   const onChangeInput = useCallback((e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     setCode(e.target.value);
   }, []);
 
-  const handleOTPVerify = useCallback(() => {}, []);
+  const handleOTPVerify = useCallback(() => {
+    if (!code) return;
+
+    const params = {
+      code,
+      cookies: data.cookies,
+    };
+    otpVerify(params)
+      .unwrap()
+      .then((res) => {
+        localStorage.setItem('user', JSON.stringify(res));
+        router.push('/daily-store');
+      })
+      .catch((err) => {
+        toast.error(err?.message);
+      });
+  }, [code, data.cookies, otpVerify, router]);
 
   return (
     <>
