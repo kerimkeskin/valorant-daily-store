@@ -2,8 +2,15 @@ import React from 'react';
 import { Logo } from 'assets/images';
 import Button from '@mui/material/Button';
 import Iconify from 'components/iconify/iconify';
+import { useRouter } from 'next/router';
 
 const Header: React.FC = () => {
+  const router = useRouter();
+
+  const handleNavigate = (path: string) => () => {
+    router.push(path);
+  };
+
   return (
     <div className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#101822] p-6 shadow-xl">
       <Logo className="h-[40px] w-[48px]" />
@@ -11,7 +18,7 @@ const Header: React.FC = () => {
         <Button
           endIcon={<Iconify icon="material-symbols:add-alert" />}
           variant="contained"
-          onClick={() => {}}
+          onClick={handleNavigate('/reminder')}
           className="bg-[#ff4655] hover:bg-[#d43842]"
         >
           <span className="text-white">Reminder</span>
