@@ -6,6 +6,7 @@ import { useLazyLoginQuery } from 'services/auth-service';
 import MultifactorAuth from './multifactor-auth';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
+import { setCookie } from 'cookies-next';
 
 const LoginCard = () => {
   const router = useRouter();
@@ -42,7 +43,9 @@ const LoginCard = () => {
         if (res.type === 'multifactor') {
           return setMultifactor({ isVisible: true, data: res });
         }
-        localStorage.setItem('user', JSON.stringify(res));
+        setCookie('user', res);
+      })
+      .then(() => {
         router.push('/daily-store');
       })
       .catch((err) => toast.error(err?.message));

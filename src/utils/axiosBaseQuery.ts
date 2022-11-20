@@ -1,13 +1,23 @@
 import { BaseQueryFn } from '@reduxjs/toolkit/dist/query';
 import axios, { AxiosRequestConfig } from 'axios';
+import { getCookie } from 'cookies-next';
 
 export const axiosRequest = async (baseUrl: string, { url, method, data, params, headers }: AxiosRequestConfig) => {
   try {
+    const userCookie = getCookie('user');
+
+    const { access_token, cookies, entitlement_token, puuid, region } = JSON.parse(userCookie as string) || {};
+
     const { data: response } = await axios({
       url: baseUrl + url,
       method,
       data: {
         ...data,
+        access_token,
+        cookies,
+        entitlement_token,
+        puuid,
+        region,
       },
       params,
       headers,
