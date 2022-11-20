@@ -16,7 +16,7 @@ export interface IStoreReq {
   language: string;
 }
 
-export interface Level {
+export interface ILevel {
   uuid: string;
   sprayLevel: number;
   displayName: string;
@@ -46,7 +46,7 @@ export interface Item {
   fullTransparentIcon: string;
   animationPng?: any;
   animationGif?: any;
-  levels: Level[];
+  levels: ILevel[];
 }
 
 export interface IItems {
@@ -70,4 +70,45 @@ export interface IStoreRes {
   type: string;
   remaning_time_in_seconds: number;
   data: IItems[];
+}
+
+export interface IData {
+  uuid: string;
+  displayName: string;
+  levelItem: string;
+  displayIcon: string;
+  streamedVideo: string;
+  assetPath: string;
+  price: string;
+  quantity: number;
+  start_date: any;
+  isHiddenIfNotOwned?: boolean;
+  themeUuid: string;
+  smallArt: string;
+  wideArt: string;
+  largeArt: string;
+  charmLevel?: number;
+  category: string;
+  fullIcon: string;
+  fullTransparentIcon: string;
+  animationPng: string;
+  animationGif: string;
+  levels: ILevel[];
+}
+
+export interface ISkinRes {
+  type: string;
+  data: IData;
+  quantity?: number;
+}
+
+export interface ISkinParams {
+  region: string;
+  access_token: string;
+  entitlement_token: string;
+}
+
+export interface ISkinReq {
+  params: ISkinParams;
+  language: string;
 }

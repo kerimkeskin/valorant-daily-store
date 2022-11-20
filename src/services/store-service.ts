@@ -1,4 +1,4 @@
-import { IStoreRes, IStoreReq } from './../interfaces/store';
+import { IStoreRes, IStoreReq, ISkinRes, ISkinReq } from './../interfaces/store';
 import { IWalletRes, IWalletReq } from 'interfaces/store';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { apiConfig } from 'constants/api-config';
@@ -26,7 +26,18 @@ export const storeService = createApi({
       }),
       transformResponse: (data: IStoreRes) => data,
     }),
+    getAllSkins: build.query<ISkinRes, ISkinReq>({
+      query: ({ params, language }) => ({
+        url: 'store/offers',
+        method: 'POST',
+        headers: {
+          language,
+        },
+        body: params,
+      }),
+      transformResponse: (data: ISkinRes) => data,
+    }),
   }),
 });
 
-export const { useGetWalletBalanceQuery } = storeService;
+export const { useGetWalletBalanceQuery, useGetDailyStoreQuery, useGetAllSkinsQuery } = storeService;
