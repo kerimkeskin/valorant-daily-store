@@ -1,3 +1,4 @@
+import { ILoginTwoFactorRes, ILoginTwoFactorReq } from './../interfaces/auth';
 import { ILoginReq, ILoginRes, IRefreshTokenReq, IRefreshTokenRes } from 'interfaces/auth';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { apiConfig } from 'constants/api-config';
@@ -6,7 +7,7 @@ export const authService = createApi({
   reducerPath: 'authService',
   baseQuery: fetchBaseQuery({ baseUrl: apiConfig.baseUrl }),
   endpoints: (build) => ({
-    login: build.query<ILoginRes, ILoginReq>({
+    login: build.query<ILoginRes | ILoginTwoFactorRes, ILoginReq>({
       query: (params) => ({
         url: 'auth/login',
         method: 'POST',
@@ -22,7 +23,15 @@ export const authService = createApi({
       }),
       transformResponse: (data: IRefreshTokenRes) => data,
     }),
+    loginWithTwoFactor: build.query<ILoginRes, ILoginTwoFactorReq>({
+      query: (params) => ({
+        url: 'auth/login',
+        method: 'PUT',
+        body: params,
+      }),
+      transformResponse: (data: ILoginRes) => data,
+    }),
   }),
 });
 
-export const { useLazyLoginQuery } = authService;
+export const { useLazyLoginQuery, useLazyLoginWithTwoFactorQuery, useLazyRefreshTokenQuery } = authService;

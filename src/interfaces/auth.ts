@@ -22,6 +22,24 @@ export interface ILoginRes {
   cookies: ICookies;
 }
 
+export interface ILoginTwoFactorRes {
+  type: string;
+  email: string;
+  cookies: ICookiesWithTwoFactor;
+}
+
+export interface ICookiesWithTwoFactor {
+  __cf_bm: string;
+  tdid: string;
+  asid: string;
+  clid: string;
+}
+
+export interface ILoginTwoFactorReq {
+  code: string;
+  cookies: ICookiesWithTwoFactor;
+}
+
 export interface IRefreshTokenReq extends ICookies {}
 
 export interface IRefreshTokenRes {
