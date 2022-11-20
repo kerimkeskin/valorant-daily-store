@@ -2,14 +2,14 @@ import React, { useCallback, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Iconify from 'components/iconify/iconify';
-import { ICookiesWithTwoFactor } from 'interfaces/auth';
+import { ILoginTwoFactorRes } from 'interfaces/auth';
 
 interface IProps {
-  cookies: ICookiesWithTwoFactor;
+  data: ILoginTwoFactorRes;
 }
 
 const MultifactorAuth: React.FC<IProps> = (props) => {
-  const { cookies } = props;
+  const { data } = props;
   const [code, setCode] = useState<string>('');
 
   const onChangeInput = useCallback((e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
@@ -21,6 +21,10 @@ const MultifactorAuth: React.FC<IProps> = (props) => {
   return (
     <>
       <span className="mb-5 text-center text-4xl font-medium">Verify Code</span>
+
+      <span className="text-center text-gray-500">
+        For added security, enter the code we have emailed to <span className="font-bold">{data.email}</span>
+      </span>
       <TextField size="medium" fullWidth label="Code" variant="filled" color="primary" value={code} onChange={onChangeInput} />
       <Button
         endIcon={<Iconify icon="material-symbols:arrow-right-alt" />}
