@@ -21,16 +21,7 @@ const MultifactorAuth: React.FC<IProps> = (props) => {
   return (
     <>
       <span className="mb-5 text-center text-4xl font-medium">Verify Code</span>
-      <TextField
-        size="medium"
-        fullWidth
-        label="Code"
-        type="number"
-        variant="filled"
-        color="primary"
-        value={code}
-        onChange={onChangeInput}
-      />
+      <TextField size="medium" fullWidth label="Code" variant="filled" color="primary" value={code} onChange={onChangeInput} />
       <Button
         endIcon={<Iconify icon="material-symbols:arrow-right-alt" />}
         variant="contained"
