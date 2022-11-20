@@ -5,7 +5,10 @@ import reducer from './reducer';
 
 export const store = configureStore({
   reducer,
-  middleware: (getDefaultMiddleware: any) => getDefaultMiddleware().concat([authService.middleware], [storeService.middleware]),
+  middleware: (getDefaultMiddleware: any) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat([authService.middleware], [storeService.middleware]),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
