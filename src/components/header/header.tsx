@@ -3,6 +3,7 @@ import { Logo } from 'assets/images';
 import Button from '@mui/material/Button';
 import Iconify from 'components/iconify/iconify';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -13,7 +14,9 @@ const Header: React.FC = () => {
 
   return (
     <div className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#101822] p-6 shadow-xl">
-      <Logo className="h-[40px] w-[48px]" />
+      <Link href="/">
+        <Logo className="h-[40px] w-[48px]" />
+      </Link>
       <div className="flex justify-end space-x-2 md:space-x-[40px]">
         <Button
           endIcon={<Iconify icon="material-symbols:add-alert" />}
