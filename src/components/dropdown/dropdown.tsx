@@ -12,7 +12,7 @@ interface IProps {
   onChange: any;
   placeholder?: string;
   emptyText?: string;
-  optionValue: string;
+  optionValue?: string;
 }
 
 const Dropdown: React.FC<IProps> = (props) => {
@@ -24,7 +24,7 @@ const Dropdown: React.FC<IProps> = (props) => {
     optionLabel = 'displayName',
     placeholder,
     emptyText = 'No Record',
-    optionValue,
+    optionValue = 'id',
     ...other
   } = props;
 
