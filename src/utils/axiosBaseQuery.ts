@@ -6,7 +6,7 @@ export const axiosRequest = async (baseUrl: string, { url, method, data, params,
   try {
     const userCookie = getCookie('user');
 
-    const { access_token, cookies, entitlement_token, puuid, region } = JSON.parse(userCookie as string) || {};
+    const { access_token, cookies, entitlement_token, puuid, region } = JSON.parse((userCookie as string) || '{}') || {};
 
     const { data: response } = await axios({
       url: baseUrl + url,
