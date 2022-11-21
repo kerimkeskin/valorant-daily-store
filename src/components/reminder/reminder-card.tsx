@@ -82,7 +82,7 @@ const ReminderCard: React.FC = () => {
           value={state.email}
           onChange={onChangeInput}
         />
-        <SkinDropdown onChange={onChangeDropdown} value={state.selectedItem} placeholder="Select Skin" key={state.selectedItem.uuid} />
+        <SkinDropdown onChange={onChangeDropdown} value={state.selectedItem} placeholder="Select Skin" key={state.selectedItem?.uuid} />
         <Button
           endIcon={<Iconify icon="fluent-mdl2:mail-reminder" />}
           variant="contained"
