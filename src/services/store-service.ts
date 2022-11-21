@@ -1,5 +1,4 @@
-import { IStoreRes, IStoreReq, ISkinRes, ISkinReq } from './../interfaces/store';
-import { IWalletRes, IWalletReq } from 'interfaces/store';
+import { IWalletRes, IWalletReq, IStoreRes, IStoreReq, ISkinRes, ISkinReq } from 'interfaces/store';
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { apiConfig } from 'constants/api-config';
 import axiosBaseQuery from 'utils/axiosBaseQuery';

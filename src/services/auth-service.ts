@@ -1,5 +1,4 @@
-import { ILoginTwoFactorRes, ILoginTwoFactorReq } from './../interfaces/auth';
-import { ILoginReq, ILoginRes, IRefreshTokenReq, IRefreshTokenRes } from 'interfaces/auth';
+import { ILoginReq, ILoginRes, IRefreshTokenReq, IRefreshTokenRes, ILoginTwoFactorRes, ILoginTwoFactorReq } from 'interfaces/auth';
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { apiConfig } from 'constants/api-config';
 import axiosBaseQuery from 'utils/axiosBaseQuery';
