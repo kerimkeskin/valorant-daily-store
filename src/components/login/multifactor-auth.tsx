@@ -6,6 +6,7 @@ import { ILoginTwoFactorRes } from 'interfaces/auth';
 import { toast } from 'react-toastify';
 import { useLazyLoginWithTwoFactorQuery } from 'services/auth-service';
 import { useRouter } from 'next/router';
+import { setCookie } from 'cookies-next';
 
 interface IProps {
   data: ILoginTwoFactorRes;
@@ -33,7 +34,7 @@ const MultifactorAuth: React.FC<IProps> = (props) => {
     otpVerify(params)
       .unwrap()
       .then((res) => {
-        localStorage.setItem('user', JSON.stringify(res));
+        setCookie('user', res);
         router.push('/daily-store');
       })
       .catch((err) => {
