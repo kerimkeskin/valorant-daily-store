@@ -2,7 +2,7 @@ import '../styles/globals.css';
 import 'react-toastify/dist/ReactToastify.css';
 import type { AppProps } from 'next/app';
 import ThemeProvider from 'utils/theme';
-import MainLayout from 'components/layouts/main/main-layout';
+import MainLayout from 'components/layouts/main-layout';
 import { Provider } from 'react-redux';
 import { store } from 'redux/store';
 import { ToastContainer } from 'react-toastify';
