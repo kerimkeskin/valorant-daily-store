@@ -29,7 +29,7 @@ const Header: React.FC = () => {
         <Button
           endIcon={<Iconify icon="material-symbols:mark-email-unread" />}
           variant="contained"
-          onClick={() => {}}
+          onClick={handleNavigate('/daily-email')}
           className="bg-[#ff4655] hover:bg-[#d43842]"
         >
           <span className="text-white">Daily Email</span>
