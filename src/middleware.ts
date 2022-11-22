@@ -16,5 +16,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/daily-store', '/reminder', '/'],
+  matcher: ['/daily-store', 'daily-email', '/reminder', '/'],
 };
