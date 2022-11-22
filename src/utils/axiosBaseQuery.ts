@@ -28,7 +28,7 @@ export const axiosRequest = async (baseUrl: string, { url, method, data, params,
     throw {
       error: {
         status: err.response?.status,
-        message: err.response?.data?.description,
+        message: err.response?.data?.description || err.response?.data?.message,
       },
     };
   }
