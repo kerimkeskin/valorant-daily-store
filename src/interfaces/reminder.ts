@@ -9,3 +9,8 @@ export interface IReminderReq {
   puuid?: string;
   region?: string;
 }
+
+export interface IDailyEmailReq {
+  email: string;
+  language?: string;
+}
