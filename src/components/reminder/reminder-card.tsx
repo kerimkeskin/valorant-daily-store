@@ -5,6 +5,7 @@ import SkinDropdown from './skin-dropdown';
 import Iconify from 'components/iconify/iconify';
 import { useLazyReminderQuery } from 'services/reminder.service';
 import { toast } from 'react-toastify';
+import CardLayout from 'components/layouts/card-layout';
 
 type IState = {
   email: string;
@@ -62,37 +63,32 @@ const ReminderCard: React.FC = () => {
   }, [state, triggerReminder]);
 
   return (
-    <div className="mt-10 flex justify-center p-3">
-      <div className="flex w-full flex-col gap-6 rounded-xl bg-[#f9f9f9] p-8 md:w-[500px]">
-        <div className="flex items-center gap-4 text-[#ff4655]">
-          <span className="text-3xl font-bold">REMINDER</span>
-          <Iconify className="text-3xl" icon="material-symbols:notification-add" />
-        </div>
-        <span className="font-bold text-gray-500">
-          You can receive an e-mail notification when the skin you choose comes to your daily store.
-        </span>
-        <TextField
-          size="medium"
-          fullWidth
-          label="Email"
-          type="email"
-          variant="filled"
-          color="primary"
-          name="email"
-          value={state.email}
-          onChange={onChangeInput}
-        />
-        <SkinDropdown onChange={onChangeDropdown} value={state.selectedItem} placeholder="Select Skin" key={state.selectedItem?.uuid} />
-        <Button
-          endIcon={<Iconify icon="fluent-mdl2:mail-reminder" />}
-          variant="contained"
-          onClick={onSubmit}
-          className="bg-[#ff4655] hover:bg-[#d43842]"
-        >
-          <span className="text-white">Remind</span>
-        </Button>
-      </div>
-    </div>
+    <CardLayout
+      title="REMINDER"
+      subtitle="You can receive an e-mail notification when the skin you choose comes to your daily store."
+      icon={<Iconify className="text-3xl" icon="material-symbols:notification-add" />}
+    >
+      <TextField
+        size="medium"
+        fullWidth
+        label="Email"
+        type="email"
+        variant="filled"
+        color="primary"
+        name="email"
+        value={state.email}
+        onChange={onChangeInput}
+      />
+      <SkinDropdown onChange={onChangeDropdown} value={state.selectedItem} placeholder="Select Skin" key={state.selectedItem?.uuid} />
+      <Button
+        endIcon={<Iconify icon="fluent-mdl2:mail-reminder" />}
+        variant="contained"
+        onClick={onSubmit}
+        className="bg-[#ff4655] hover:bg-[#d43842]"
+      >
+        <span className="text-white">Remind</span>
+      </Button>
+    </CardLayout>
   );
 };
 
